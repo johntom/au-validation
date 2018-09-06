@@ -1,13 +1,17 @@
-import {PLATFORM} from 'aurelia-pal';
-import 'babel-polyfill';
-import * as Bluebird from 'bluebird';
-import 'bootstrap/dist/css/bootstrap.css';
-
-export async function configure(aurelia) {
+export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
-    .developmentLogging();
+    .developmentLogging()
+    // .feature('resources')
+    .plugin('aurelia-animator-css')
+    .plugin('aurelia-dialog', config => {
+      config.useDefaults();
+      config.settings.lock = true;
+      config.settings.centerHorizontalOnly = false;
+      config.settings.startingZIndex = 5;
+      config.settings.keyboard = true;
+    })
+    .plugin('aurelia-validation');
 
-  await aurelia.start();
-  await aurelia.setRoot(PLATFORM.moduleName('app'));
+  aurelia.start().then(a => a.setRoot());
 }
