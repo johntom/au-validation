@@ -4,9 +4,8 @@ export class App {
   configureRouter(config, router) {
     config.title = 'Aurelia Babel SystemJS';
     config.map([
-      {"route": ["", "welcome"], "name": "welcome", "moduleId": "./welcome", "nav": true, "title": "Welcome"},
-      {"route": "users", "name": "users", "moduleId": "./users", "nav": true, "title": "GitHub Users"},
-      {"route": "child-router", "name": "child-router", "moduleId": "./child-router", "nav": true, "title": "Child Router"}
+      {"route": ["", "simple-form"], "name": "simple-form", "moduleId": "./simple-form", "nav": true, "title": "Simple Form"},
+      {"route": "registration-form", "name": "registration-form", "moduleId": "./registration-form", "nav": true, "title": "Registration Form"}
     ]);
 
     this.router = router;
